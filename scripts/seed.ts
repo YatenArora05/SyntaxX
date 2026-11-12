@@ -49,7 +49,7 @@ async function seedProblems() {
       functionName: p.functionName,
       tests: p.tests,
       starter: p.starter,
-      referenceSolution: opponentSolutions[p.id] ?? null,
+      referenceSolutions: p.referenceSolutions,
       timeLimitMs: p.timeLimitMs,
       acceptance: p.acceptance,
     };

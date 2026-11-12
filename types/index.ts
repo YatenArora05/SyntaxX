@@ -43,6 +43,8 @@ export interface Problem {
   functionName: string;
   tests: TestCase[];
   starter: Record<Language, string>;
+  /** Reference solutions for all 4 languages, used by bots and the judge */
+  referenceSolutions: Record<Language, string>;
   /** Reference runtimes used to give mock judges realistic numbers */
   timeLimitMs: number;
   acceptance: number;

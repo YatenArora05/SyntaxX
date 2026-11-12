@@ -50,8 +50,8 @@ export const problems = pgTable("problems", {
   /** includes hidden cases: never send hidden tests to the browser in a real deployment */
   tests: jsonb("tests").$type<TestCase[]>().notNull(),
   starter: jsonb("starter").$type<Record<Language, string>>().notNull(),
-  /** reference solution (JavaScript), used by bots and for verifying the tests */
-  referenceSolution: text("reference_solution"),
+  /** reference solutions for all 4 languages, used by bots and for verifying the tests */
+  referenceSolutions: jsonb("reference_solutions").$type<Record<Language, string>>().notNull(),
   timeLimitMs: integer("time_limit_ms").notNull().default(1000),
   acceptance: real("acceptance").notNull().default(50),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
