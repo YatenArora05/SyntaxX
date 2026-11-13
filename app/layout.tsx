@@ -5,6 +5,7 @@ import "./globals.css";
 import { Providers } from "@/components/layout/providers";
 import { SessionProvider } from "@/lib/services/auth";
 import { getSession } from "@/lib/auth/session";
+import { CursorTrail } from "@/components/shared/cursor-trail";
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +26,10 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${GeistSans.variable} h-full antialiased`}>
       <body className="min-h-full">
         <SessionProvider session={session}>
-          <Providers>{children}</Providers>
+          <Providers>
+            <CursorTrail />
+            {children}
+          </Providers>
         </SessionProvider>
       </body>
     </html>
